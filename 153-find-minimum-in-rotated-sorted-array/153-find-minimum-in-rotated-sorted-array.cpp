@@ -26,21 +26,22 @@ public:
             int next = (mid + 1)%N;
             int prev = (mid - 1 + N)%N;
             
-            if(nums[prev] > mid && nums[mid] > nums[next])
+            if(nums[mid] < nums[prev] && nums[mid] < nums[next])
             {
-                ans = mid+1;
+                ans = mid;
                 break;
             }
             
-            if(nums[start] > nums[mid])
+            if(nums[0] <= nums[mid])
             {
-                end = mid-1;
+                start = mid+1;
             }
             else
             {
-                start = mid+1;
+                end = mid-1;
             } 
         }
+        
         return nums[ans];
     }
 };
