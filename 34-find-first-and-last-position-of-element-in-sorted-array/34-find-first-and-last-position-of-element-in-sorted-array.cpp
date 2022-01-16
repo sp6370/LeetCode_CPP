@@ -10,16 +10,13 @@ public:
         int mid = start + (end - start)/2;
         
         if(nums[mid] == target)
-        {
-            int ls = bFSearch(nums, target, start, mid-1);
-            if(ls!=-1)
-            {
-                return ls;
-            }
-            else
+        {   
+            if(mid == 0 || nums[mid-1] != nums[mid])
             {
                 return mid;
             }
+            
+            return bFSearch(nums, target, start, mid-1);
         }
         
         if(nums[mid] > target)
