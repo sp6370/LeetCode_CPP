@@ -85,17 +85,13 @@ public:
         //find index of smallest element after rotation
         int sPos = mBinarySearch(nums, start, end);
         
-        //now binary search in to sections of array
-        int lans = bSearch(nums, start, sPos-1, target);
-        
-        int rans = bSearch(nums, sPos, end, target);
-        
-        if(lans!=-1)
+        //now binary search in to correct section of the array
+        if(target>=nums[0])
         {
-            return lans;
+            return bSearch(nums, start, sPos-1, target);
         }
-        
-        return rans;
+
+        return bSearch(nums, sPos, end, target);;
         
     }
 };
