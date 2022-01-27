@@ -24,6 +24,7 @@ public:
         }
 
         // The left and right subtree must also be valid.
+        // ????? Right and Left how is null changing
         return validate(root->right, root, high) and
                validate(root->left, low, root);
     }
