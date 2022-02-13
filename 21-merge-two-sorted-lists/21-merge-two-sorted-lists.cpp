@@ -12,8 +12,6 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         
-
-        
         if(list1 == NULL && list2==NULL)
         {
             return NULL;
@@ -28,8 +26,6 @@ public:
         {
             return list1;
         }
-        
-        
         
         ListNode* resultHead = NULL;
         ListNode* curNode = NULL;
