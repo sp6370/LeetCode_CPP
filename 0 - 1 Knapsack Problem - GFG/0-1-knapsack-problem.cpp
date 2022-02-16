@@ -7,37 +7,39 @@ using namespace std;
 
 class Solution
 {
-    int t[1001][1001];
-    
     public:
-    Solution()
-    {
-        memset(t, -1, sizeof(t));
-    }
     //Function to return max value that can be put in knapsack of capacity W.
     int knapSack(int W, int wt[], int val[], int n) 
     { 
-       if(n == 0 || W == 0)
+       //let's create the table
+       int t[1001][1001];
+       
+       //initialisation
+       for(int i=0; i<=n; i++)
        {
-           return 0;
+           for(int j=0; j<=W; j++)
+           {
+               if(i == 0 || j == 0)
+               {
+                   t[i][j]=0;
+               }
+           }
        }
        
-       
-       if(t[n][W]!=-1)
+       //bottom up solution
+       for(int i=1; i<=n; i++)
        {
-           return t[n][W];
-       }
-       
-       //current item can be considered
-       if(wt[n-1]<=W)
-       {    
-           //case 1.1 Item is included
-           //case 1.2 Item is not included
-            t[n][W] = max( (val[n-1] + knapSack(W-wt[n-1], wt, val, n-1)),knapSack(W, wt, val, n-1));
-       }
-       else
-       {
-            t[n][W] = knapSack(W, wt, val, n-1);
+           for(int j=1; j<=W; j++)
+           {
+               if(wt[i-1]<=j)
+               {
+                   t[i][j] = max(val[i-1]+t[i-1][j-wt[i-1]], t[i-1][j]);
+               }
+               else
+               {
+                   t[i][j] = t[i-1][j];
+               }
+           }
        }
        
        return t[n][W];
