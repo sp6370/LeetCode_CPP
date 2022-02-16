@@ -6,12 +6,14 @@ public:
         vector<int> freq;
         int j;
         int count;
+        char key;
         
         for(int i=0; i<s.size(); i++)
         {
-            char key = s[i];
+            key = s[i];
             j = i+1;
             count = 1;
+            
             while((j)<s.size() && s[j] == key)
             {
                 ++j;
@@ -19,6 +21,8 @@ public:
             }
             freq.push_back(count);
             i=j-1;
+            // why?
+            // j => Is now pointing to the correct element; once the control goes back to loop start i is incremented again
         }
         
         int ans = 0;
