@@ -9,54 +9,51 @@ using namespace std;
 
 class Solution{   
 public:
-
     int t[101][10001];
     
     Solution()
     {
-        memset(t, -1, sizeof(t));
+        memset(t, -1, sizeof(t));    
     }
     
     bool isSubsetSum(int N, int arr[], int sum){
-        // let's do top down
+        //DP
         
-        // base case
-        if(sum == 0 && N == 0)
-        {
-            return true;
-        }
+        //first let's handle base cases
         
-        if(sum == 0)
+        // handling the sum
+        for(int i=0; i<=sum; i++)
         {
-            return true;
-        }
-        
-        if(N==0 && sum!=0)
-        {
-            return false;
-        }
-        
-        if(t[N][sum]!=-1)
-        {
-            if(t[N][sum] == 1)
+            if(i == 0)
             {
-                return true;
-            }
-            else
+                t[0][i] = 1;
+            }else
             {
-                return false;
+                t[0][i] = 0;
             }
         }
         
-        if(arr[N-1]<=sum)
+        //handling the elements for 0 sum
+        for(int i=1; i<=N; i++)
         {
-            t[N][sum] = isSubsetSum(N-1, arr, sum - arr[N-1]) || isSubsetSum(N-1, arr, sum);
-        }
-        else
-        {
-            t[N][sum] = isSubsetSum(N-1, arr, sum);
+            t[i][0] = 1;
         }
         
+        //let's build the table
+        for(int i=1; i<=N; i++)
+        {
+            for(int j=1; j<=sum; j++)
+            {
+                if(arr[i-1]<=sum)
+                {
+                    t[i][j] = t[i-1][j - arr[i-1]] || t[i-1][j];
+                }
+                else
+                {
+                    t[i][j] = t[i-1][j];
+                }
+            }
+        }
         return t[N][sum];
     }
 };
