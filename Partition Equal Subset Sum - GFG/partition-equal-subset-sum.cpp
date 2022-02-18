@@ -52,8 +52,6 @@ public:
         return t[N][k];
     }
     
-    
-    
     int equalPartition(int N, int arr[])
     {
         int sum = 0;
