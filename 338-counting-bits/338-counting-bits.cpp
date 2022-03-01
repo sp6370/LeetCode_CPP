@@ -1,32 +1,22 @@
 class Solution {
 public:
-    
-    int getBits(int num)
-    {
-        int count = 0;
-        
-        while(num)
-        {
-            num = num & (num - 1);
-            count++;
-        }
-        
-        return count;
-    }
-    
     vector<int> countBits(int n) {
-        vector<int> result;
-        for(int i=0; i<=n; i++)
+        
+        vector<int> result(n);
+        int offsetValue = 1;
+        
+        result.push_back(0);
+        
+        for(int i=1; i<=n; i++)
         {
-            if(i == 0)
+            if(offsetValue * 2 == i)
             {
-                result.push_back(0);
+                offsetValue = i;
             }
-            else
-            {
-                result.push_back(getBits(i));
-            }
+            
+            result[i] = 1 + result[i - offsetValue];
         }
+        
         return result;
     }
 };
