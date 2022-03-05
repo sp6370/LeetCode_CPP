@@ -10,6 +10,8 @@ class Solution:
             if(str1[0] == str2[0]):
                 return 1 + solver(str1[1:], str2[1:])
             
-            return max(solver(str1, str2[1:]), solver(str1[1:],str2))
+            a = solver(str1[1:], str2[1:])
+            b = max(solver(str1, str2[1:]), solver(str1[1:],str2))
+            return max(a,b)
         
         return solver(text1, text2)
