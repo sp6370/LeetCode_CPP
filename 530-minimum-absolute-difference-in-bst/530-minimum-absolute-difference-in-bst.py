@@ -9,20 +9,19 @@ import sys
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
         
-        result = []
-        
         def inTraverse(root):
             if(root == None):
-                return
+                return []
             
-            inTraverse(root.left)
-            result.append(root.val)
-            inTraverse(root.right)
-        
-        inTraverse(root)
+            lans = inTraverse(root.left)
+            lans += [root.val]
+            lans += inTraverse(root.right)
+            
+            return lans
+
+        result = inTraverse(root)
         
         minVal = sys.maxsize
-        
         for i in range(1, len(result)):
             minVal = min(minVal, abs(result[i-1] - result[i]))
         
