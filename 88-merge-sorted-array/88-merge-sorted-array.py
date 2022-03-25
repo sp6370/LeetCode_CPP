@@ -14,11 +14,14 @@ class Solution:
         """
         copy_nums1 = copy.deepcopy(nums1[:m])
         
+        #read pointers
         read_copy = 0
-        read_nums2 = 0
-        write_nums1 = 0
-        
+        read_nums2 = 0      
         for i in range(m+n):
+            # First Check: If pointer for nums2 is out of bound auto into first
+            # Or
+            # Second Check: Nums1copy ptr is not out of bounds and the value is smaller than in the 
+            # nums2
             if (read_nums2 >=n) or (read_copy < m and copy_nums1[read_copy] < nums2[read_nums2]):
                 nums1[i] = copy_nums1[read_copy]
                 read_copy+=1
