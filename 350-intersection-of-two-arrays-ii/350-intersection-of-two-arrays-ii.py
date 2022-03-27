@@ -35,8 +35,6 @@ class Solution:
         nums1.sort()
         nums2.sort()
         
-        print(nums1)
-        print(nums2)
         # read pointer 
         p1 = 0
         p2 = 0
