@@ -19,4 +19,22 @@ class Solution:
                 index+=1
         
         return result
+    
+        """
+        #2D matrix to 1D array:
+        Matrix Size : (m x n)
+        Array size: [m x n]
+        
+        Element at index (i, j) in matrix maps to index k in array as: 
+        k = j + ( i * n)
+        
+        
+        #1D array to 2D matrix:
+        Matrix Size : (m x n)
+        Array size: [m x n]
+        
+        Element at index (k) in array maps to index (i, j) in matrix as: 
+        i = k // n
+        j = k % n
+        """
         
