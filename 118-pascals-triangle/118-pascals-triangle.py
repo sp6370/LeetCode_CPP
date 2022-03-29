@@ -2,9 +2,7 @@ class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         if numRows == 0:
             return []
-        elif numRows == 1:
-            return [[1]]
-        
+       
         result = [[1]]
         
         for i in range(1, numRows):
