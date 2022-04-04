@@ -37,7 +37,8 @@ class Solution:
         
         # CHECK FOR THE VALUE IN THE TARGET ROW
         if target_row == -1:
-            return bSearch(matrix[0], target)
+            # return bSearch(matrix[0], target)
+            pass
         else:
             return bSearch(matrix[target_row], target)
         
