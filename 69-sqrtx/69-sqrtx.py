@@ -5,18 +5,17 @@ class Solution:
             return x
         
         start = 0
-        end = x//2
+        end = x
         
+        result = -1
         while start <=end:
             mid = (start + end) // 2
             
-            if mid * mid == x:
-                return int(mid)
-            
-            if mid*mid > x:
-                end = mid - 1
-            else:
+            if mid*mid <= x:
+                result = mid
                 start = mid + 1
+            else:
+                end = mid - 1
         
-        return int(end)
+        return result
         
