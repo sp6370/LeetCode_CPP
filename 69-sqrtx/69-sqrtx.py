@@ -1,9 +1,5 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        
-        if x < 2:
-            return x
-        
         start = 0
         end = x
         
