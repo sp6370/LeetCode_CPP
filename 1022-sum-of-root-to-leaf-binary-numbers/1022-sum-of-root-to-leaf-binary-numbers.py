@@ -7,25 +7,22 @@
 class Solution:
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
         sum_binary = 0
-        state = ""
-        def dfs(root):
-            nonlocal state
+        state = 0
+        def dfs(root, state):
             nonlocal sum_binary
             if not root:
                 return
-            state +=str(root.val)
+            state = (state << 1) | root.val
             
             if root.left == None and root.right == None:
-                sum_binary += int(state, 2)
-                state = state[:-1]
+                sum_binary +=state
                 return
             
-            dfs(root.left)
-            dfs(root.right)
-            
-            state = state[:-1]
+            dfs(root.left, state)
+            dfs(root.right, state)
             return
-        dfs(root)
+        
+        dfs(root, state)
         return sum_binary
                 
                 
