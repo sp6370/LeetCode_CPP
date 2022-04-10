@@ -14,13 +14,13 @@ class Solution:
             left_result = find_diameter(root.left)
             right_result = find_diameter(root.right)
             
-            curr_diameter = 1 + left_result[0] + right_result[0]
+            curr_diameter = left_result[0] + right_result[0]
             curr_height = 1 + max(left_result[0], right_result[0])
             
             max_sub_dia = max(left_result[1], right_result[1])
             
             return (curr_height, max(curr_diameter, max_sub_dia))
         
-        return max(find_diameter(root)[1] - 1, 0)
+        return find_diameter(root)[1]
             
         
