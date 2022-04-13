@@ -23,7 +23,4 @@ class Solution:
             
             return res
         
-        if not root:
-            return 0
-        
-        return get_sum(root.left, True) + get_sum(root.right, False)
+        return get_sum(root, False)
