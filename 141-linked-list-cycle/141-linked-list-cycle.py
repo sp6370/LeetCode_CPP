@@ -11,17 +11,21 @@ class Solution:
             return False
         
         slow = head
-        fast = head.next
+        fast = head
         
-        while fast:
+        while(fast):
+            if slow.next:
+                slow = slow.next
+            else:
+                return False
+            
+            if fast.next:
+                fast = fast.next.next
+            else:
+                return False
+            
             if slow == fast:
                 return True
-            
-            slow = slow.next
-            if fast.next == None:
-                return False
-            else:
-                fast = fast.next.next
         
         return False
         
