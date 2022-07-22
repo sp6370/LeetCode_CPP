@@ -14,11 +14,12 @@ S2: If opening brace then push
 S3: Else If Closing brace and stack top is corresponding opening brace
                 then pop stack and continue
          Else: Return False
-I: 
+I: Done
 
-R: 
+R: Edge case: Bracket remains inside stack after passing entire string
+   Edge case: Poping when nothing in stack
 
-E:
+E: T:O(N) and S:O(N)
 """
 
 
