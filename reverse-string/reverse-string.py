@@ -1,12 +1,14 @@
-class Solution(object):
-    def reverseString(self, s):
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
         """
-        :type s: List[str]
-        :rtype: None Do not return anything, modify s in-place instead.
+        Do not return anything, modify s in-place instead.
         """
-        def solver(left, right):
-            if(left < right):
-                s[left], s[right] = s[right], s[left]
-                solver(left+1, right -1 )
         
-        solver(0, len(s)-1)
+        left = 0
+        right = len(s) - 1
+        
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+        
