@@ -10,7 +10,7 @@ class Solution:
             
             val = nums[right]
             
-            if val == 1:
+            if val is 1:
                 window[val] += 1
                 # assumption windows is valid every time at this point
             else:
